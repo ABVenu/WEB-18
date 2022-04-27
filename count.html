@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+    <div id="cont">
+
+    </div>
+
+
+<script>
+   
+
+   var count = localStorage.getItem("countervalue")||0
+   var h1 = document.createElement("h1");
+   h1.innerText = count;
+
+    var btn1 = document.createElement("button");
+    btn1.innerText="Increase"
+
+
+    var btn2 = document.createElement("button");
+    btn2.innerText="Decrease"
+
+    var box = document.querySelector("#cont");
+
+    box.append(h1, btn1,btn2)
+
+
+    btn1.addEventListener("click", inccountfn)
+
+
+    function inccountfn()
+    {
+        count++;
+        h1.innerText = count;
+        localStorage.setItem("countervalue",count)
+    }
+
+
+    btn2.addEventListener("click", deccountfn)
+
+
+    
+    function deccountfn()
+    {
+        count--;
+        h1.innerText = count;
+        localStorage.setItem("countervalue",count)
+    }
+</script>
