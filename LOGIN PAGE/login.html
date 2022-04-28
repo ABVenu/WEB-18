@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box0{
+            border: 1px solid red;
+            margin: auto;
+            width: 80%;
+        }
+
+        #box0>form{
+           margin: auto;
+           padding:20px;
+        }
+
+        label{
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+
+        }
+        input{
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        form+button{
+            margin-left:20px;
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    
+     <div id="box0">
+        <form id="loginForm" action="">
+            <label for="">Enter Email</label>
+            <br>
+            <input id="email" type="email" placeholder="enter your email">
+            <br>
+            <label for="">Enter Mobile</label>
+            <br>
+            <input id="number" type="number" placeholder="enter your number" min="0" requiredminlength="10" requiredmaxlength="10">
+            <br>
+            <label for="">Enter Password</label>
+            <br>
+            <input id="password" type="password" placeholder="enter password">
+            <br>
+            <button>sign in</button>
+            <br>
+        
+        </form>
+     </div>
+    
+</body>
+</html>
+
+
+<script>
+
+document.querySelector("form").addEventListener("click",loginfn);
+
+var logindataArr = JSON.parse(localStorage.getItem("loginData"))||[];
+
+function loginfn(){
+  event.preventDefault();
+
+  var logindataobj={
+      email:loginForm.email.value,
+      number: loginForm.number.value,
+      password: loginForm.password.value
+
+  };
+
+
+
+  var login= document.createElement("button");
+  login.innerText="login"
+  document.querySelector("#box0").append(login)
+
+  login.addEventListener("click",function(){
+      deletefn(ele)
+  })
+
+
+  logindataArr.push(logindataobj);
+
+  console.log(logindataArr);
+
+  localStorage.setItem("loginData",JSON.stringify(logindataArr))
+   
+
+function deletefn(ele){
+    
+
+}
+  
+
+
+    
+}
+
+
+
+</script>
